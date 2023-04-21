@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-cd-test
+spec:
+  destination:
+    namespace: argo-cd-test
+    server: 'https://kubernetes.default.svc'
+  project: default
+  source:
+    directory:
+      recurse: true
+    path: secret
+    repoURL: 'https://github.com/cs0978/argo-cd-test.git'
