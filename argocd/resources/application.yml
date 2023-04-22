@@ -4,11 +4,9 @@ metadata:
   name: argo-cd-test
 spec:
   destination:
-    namespace: argo-cd-test
     server: 'https://kubernetes.default.svc'
+    namespace: argo-cd-test
   project: default
   source:
-    plugin:
-      name: argocd-vault-plugin
-    path: secret
     repoURL: 'https://github.com/cs0978/argo-cd-test.git'
+    path: secret

@@ -16,7 +16,7 @@ data:
       discover:
         find:
           command: [sh, -c]
-          args: ["find . -name '*.yml' | xargs -I {} grep \"<path\\|avp\\.kubernetes\\.io\" {} | grep ."]
+          args: ["find . -name '*.yml' | xargs -I {} grep '<path' {} | grep ."]
       generate:
         command: [argocd-vault-plugin]
         args: [generate, .]
