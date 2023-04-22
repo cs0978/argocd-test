@@ -8,7 +8,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   project: default
   source:
-    directory:
-      recurse: true
+    plugin:
+      name: argocd-vault-plugin
     path: secret
     repoURL: 'https://github.com/cs0978/argo-cd-test.git'

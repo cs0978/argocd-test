@@ -10,15 +10,14 @@ data:
       name: argocd-vault-plugin
     spec:
       allowConcurrency: true
+      init:
+        command: [sh, -c]
+        args: [echo, Initializing...]
       discover:
         find:
-          command:
-            - sh
-            - "-c"
-            - "find . -name '*.yaml' | xargs -I {} grep \"<path\\|avp\\.kubernetes\\.io\" {} | grep ."
+          command: [sh, -c]
+          args: ["find . -name '*.yml' | xargs -I {} grep \"<path\\|avp\\.kubernetes\\.io\" {} | grep ."]
       generate:
-        command:
-          - argocd-vault-plugin
-          - generate
-          - "."
+        command: [argocd-vault-plugin]
+        args: [generate, .]
       lockRepo: false

@@ -136,13 +136,14 @@ spec:
         volumeMounts:
           - mountPath: /custom-tools
             name: custom-tools
-    containers:
+    sidecarContainers:
       - name: avp
         image: registry.redhat.io/ubi8
         envFrom:
           - secretRef:
               name: argocd-vault-plugin-credentials
         command: [/var/run/argocd/argocd-cmp-server]
+        args: [--loglevel, debug]
         volumeMounts:
           - name: var-files
             mountPath: /var/run/argocd
